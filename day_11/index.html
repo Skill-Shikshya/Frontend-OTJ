@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch API Example</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+        padding: 20px;
+      }
+      button {
+        margin: 10px;
+        padding: 10px 20px;
+        border: none;
+        background: #007bff;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+      #output {
+        margin-top: 20px;
+        background: white;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: auto;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Fetch Data Example</h1>
+    <button onclick="fetchWithPromise()">Fetch with Promise</button>
+    <button onclick="fetchWithAsyncAwait()">Fetch with Async/Await</button>
+
+    <div id="output"></div>
+
+    <script>
+      const output = document.getElementById("output");
+      const API_URL = "https://jsonplaceholder.typicode.com/posts/1";
+      async function fetchWithPromise() {
+        output.innerHTML = "Fetching data with Promise...";
+        fetch(API_URL)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            output.innerHTML = `<h3>${data.title}</h3><p>${data.body}</p>`;
+          })
+          .catch((error) => {
+            output.innerHTML = `<p style="color:red;">Error: ${error}</p>`;
+          });
+        console.log(datas);
+      }
+
+      // Fetch using Async/Await
+      async function fetchWithAsyncAwait() {
+        output.innerHTML = "Fetching data with Async/Await...";
+        try {
+          const response = await fetch(API_URL);
+          const data = await response.json();
+          output.innerHTML = `<h3>${data.title}</h3><p>${data.body}</p>`;
+        } catch (error) {
+          output.innerHTML = `<p style="color:red;">Error: ${error}</p>`;
+        }
+      }
+    </script>
+  </body>
+</html>

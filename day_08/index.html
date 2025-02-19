@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="">
+      <p id="meroId">
+        My paragraph
+        <span>content</span>
+      </p>
+      <p class="xutti">Xutti tespaxi</p>
+      <p class="xutti">tespaxi ghar jaane</p>
+    </div>
+    <script>
+      let element = document.getElementById("meroId");
+      element.style.color = "red";
+      let classElement = document.getElementsByClassName("xutti");
+      //   console.log(classElement);
+      classElement[1].style.color = "green";
+
+      let queryElem = document.querySelectorAll(".xutti");
+      console.log(queryElem);
+    </script>
+  </body>
+</html>
